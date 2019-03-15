@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+	<if condition='isDefined("LOG_MODE")'>
+		<then>
+			<if condition='"${LOG_MODE}".equals("")'>
+				<then>
+					<include resource="logback-logstash.xml" />
+				</then>
+				<else>
+					<include resource="logback-${LOG_MODE}.xml" />
+				</else>
+			</if>
+		</then>
+		<else>
+			<include resource="logback-logstash.xml" />
+		</else>
+	</if>
+</configuration>
